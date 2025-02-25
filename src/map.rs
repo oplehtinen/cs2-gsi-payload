@@ -77,7 +77,8 @@ pub struct Map {
     /// Number of spectators.
     pub current_spectators: Option<u64>,
     /// Number of souvenirs packages dropped during the game.
-    pub souvenirs_total: u64,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub souvenirs_total: Option<u64>,
     /// See [`RoundWinCondition`].
     #[serde(default)]
     pub round_wins: HashMap<u16, RoundWinCondition>, // QUESTION: `Option` instead of HashMap::Default() ?
