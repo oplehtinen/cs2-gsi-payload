@@ -1,6 +1,6 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub enum WeaponType {
     Knife,
     Pistol,
@@ -32,7 +32,7 @@ impl Default for WeaponType {
     }
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum WeaponState {
     Holstered,
@@ -40,7 +40,7 @@ pub enum WeaponState {
     Reloading,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Weapon {
     /// Weapon name.
     pub name: String,

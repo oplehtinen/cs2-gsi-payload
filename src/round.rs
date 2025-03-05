@@ -1,8 +1,8 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use super::team::Team;
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum BombState {
     Planted,
@@ -10,7 +10,7 @@ pub enum BombState {
     Defused,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 #[serde(tag = "phase")]
 pub enum Round {

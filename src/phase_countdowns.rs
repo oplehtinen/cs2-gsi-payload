@@ -1,7 +1,7 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use serde_with::{serde_as, DisplayFromStr};
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum Phase {
     Over,
@@ -17,7 +17,7 @@ pub enum Phase {
 }
 
 #[serde_as]
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct PhaseCountdowns {
     pub phase: Phase,
     #[serde_as(as = "DisplayFromStr")]

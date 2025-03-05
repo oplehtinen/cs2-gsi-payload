@@ -1,10 +1,10 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use serde_with::{serde_as, DisplayFromStr};
 
 use super::custom::coordinates::Coordinates;
 
 #[serde_as]
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 #[serde(tag = "state")]
 pub enum Bomb {

@@ -5,7 +5,7 @@
 //! — __[Archive](https://web.archive.org/web/20220906050651/https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/)__
 //!
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 mod bomb;
@@ -31,7 +31,7 @@ use self::{
     grenade::Grenade, map::Map, phase_countdowns::PhaseCountdowns, player::Player, round::Round,
 };
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(deny_unknown_fields)]
 pub struct Payload {
     pub provider: Option<Provider>,

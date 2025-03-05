@@ -1,7 +1,7 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct TeamSubsection {
     /// Score of this team.
     pub score: u16,
@@ -17,7 +17,7 @@ pub struct TeamSubsection {
     pub name: Option<String>,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum Phase {
     Live,
@@ -26,7 +26,7 @@ pub enum Phase {
     GameOver,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum Mode {
     Competitive,
@@ -41,7 +41,7 @@ pub enum Mode {
     Training,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "snake_case")]
 pub enum RoundWinCondition {
     /// When CTs win the round by eliminating all the Ts.
@@ -56,7 +56,7 @@ pub enum RoundWinCondition {
     TWinBomb,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Map {
     /// Gamemode. See [`Mode`].
     pub mode: Mode,

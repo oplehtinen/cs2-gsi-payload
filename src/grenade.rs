@@ -1,11 +1,11 @@
 use std::collections::HashMap;
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use serde_with::{serde_as, DisplayFromStr};
 
 use super::custom::coordinates::Coordinates;
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum GrenadeType {
     Frag,
@@ -18,7 +18,7 @@ pub enum GrenadeType {
 
 /// Information about a thrown grenade
 #[serde_as]
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Grenade {
     /// SteamID64 of the player that threw the grenade.
     pub owner: String,

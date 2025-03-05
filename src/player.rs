@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 use super::custom::coordinates::Coordinates;
@@ -12,7 +12,7 @@ fn default_smoked() -> u8 {
 }
 
 /// Information about the state of an individual player.
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct PlayerState {
     /// Player health.
     ///
@@ -62,7 +62,7 @@ pub struct PlayerState {
 }
 
 /// Statistics of an individual player.
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct MatchStats {
     /// Total number of kills of the player since the start of the game.
     pub kills: i32, // can be a negative number if TK/disconnection
@@ -77,7 +77,7 @@ pub struct MatchStats {
 }
 
 /// Activity of a player.
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum Activity {
     Playing,
@@ -86,7 +86,7 @@ pub enum Activity {
 }
 
 /// Aggregate of information about an individual player.
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Player {
     // `player_id` component
     /// SteamID64 of the player.
