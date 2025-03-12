@@ -1,5 +1,6 @@
 use serde::de::{self, MapAccess, Visitor};
 use serde::{Deserialize, Deserializer, Serialize};
+use std::f64::EPSILON;
 use std::fmt;
 
 #[derive(Serialize, Clone, Debug)]
@@ -7,6 +8,12 @@ pub struct Coordinates {
     pub x: f64,
     pub y: f64,
     pub z: f64,
+}
+
+impl Coordinates {
+    pub fn is_zero(&self) -> bool {
+        self.x.abs() < EPSILON && self.y.abs() < EPSILON && self.z.abs() < EPSILON
+    }
 }
 
 // Custom visitor implementation to handle different coordinate formats
